@@ -30,14 +30,14 @@ max_det = 10
 @torch.no_grad()
 def run(weights='barhuman_yolov5.pt',  # model.pt path(s)
         source= ROOT / "0",  # file/dir/URL/glob, 0 for webcam
-        data='C:\PycharmProjects\HumandDetextion_YOLOv5\data\crowdhuman.yaml',  # dataset.yaml path
+        data=r'\data\crowdhuman.yaml',  # dataset.yaml path
         imgsz=(640, 640),  # inference size (height, width)
         conf_thres=conf_thres,  # confidence threshold
         iou_thres=iou_thres,  # NMS IOU threshold
         max_det=max_det,  # maximum detections per image
         device='',  # cuda device, i.e. 0 or 0,1,2,3 or cpu
         view_img=False,  # show results
-        save_txt=False,  # save results to *.txt
+        save_txt=True,  # save results to *.txt
         save_conf=False,  # save confidences in --save-txt labels
         save_crop=False,  # save cropped prediction boxes
         nosave=True,  # do not save images/videos
@@ -157,10 +157,11 @@ def run(weights='barhuman_yolov5.pt',  # model.pt path(s)
 
             # Stream results
             im0 = annotator.result()
+            '''
             if view_img:
                 cv2.imshow(str(p), im0)
                 cv2.waitKey(1)  # 1 millisecond
-
+            '''
             # Save results (image with detections)
             if save_img:
                 if dataset.mode == 'image':
@@ -197,7 +198,7 @@ def parse_opt():
     parser = argparse.ArgumentParser()
     parser.add_argument('--weights', nargs='+', type=str, default='barhuman_yolov5.pt', help='model path(s)')
     parser.add_argument('--source', type=str, default=0, help='file/dir/URL/glob, 0 for webcam')
-    parser.add_argument('--data', type=str, default='C:\PycharmProjects\HumandDetextion_YOLOv5\data\crowdhuman.yaml', help='(optional) dataset.yaml path')
+    parser.add_argument('--data', type=str, default=f'data\crowdhuman.yaml', help='(optional) dataset.yaml path')
     parser.add_argument('--imgsz', '--img', '--img-size', nargs='+', type=int, default=[128], help='inference size h,w')  #640
     parser.add_argument('--conf-thres', type=float, default=conf_thres, help='confidence threshold')
     parser.add_argument('--iou-thres', type=float, default=iou_thres, help='NMS IoU threshold')
