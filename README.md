@@ -1,8 +1,9 @@
 # eye4tracking
-The customized version from the official github YOLOv5
+The customized version from the official github YOLOv5.
 
 # Установка
-Сначала разорхивируйте архив в папку проекта. После, что бы установить все необходимые библиотеки, используйте команду в консоле проекта pip install -r requirements.txt
+Сначала разорхивируйте архив в папку проекта. После, что бы установить все необходимые библиотеки, используйте команду в консоле проекта pip install -r requirements.txt.
+Модель нужно скачать по ссылке https://drive.google.com/file/d/1BlSsdM8yThbvlBRKRYVBjPFRM_jIGwXm/view?usp=sharing.
 
 # Запуск и просмотр результатов
 Запускаете detect.py. Красной рамкой обозначается человек, а оранжевой его голова. В консоль выводятся результаты детекции: <источник, рамка, найденные объекты, результат, затраченное время>.
